@@ -1,0 +1,50 @@
+<div class="create-contact">
+  <header class="create-contact-heading"> {{index !== undefined? 'Update' : 'Create'}} Contact </header>
+  <sm-modal title="Contact List Demo" class="basic mini" #contactModal>
+      <modal-content>
+          {{contactMessage}}
+      </modal-content>
+  </sm-modal>
+  <form class="ui form" [formGroup]="contactForm">
+    <div class="contact-details">
+      <div class="contact-field">
+        <div class="contact-key">First Name:</div>
+        <div class="contact-value">
+          <sm-input [control]="contactForm.controls.firstName" placeholder="Enter First Name..."></sm-input>
+        </div>
+      </div>
+      <div class="contact-field">
+        <div class="contact-key">Last Name:</div>
+        <div class="contact-value">
+          <sm-input [control]="contactForm.controls.lastName" placeholder="Enter Last Name..."></sm-input>
+        </div>
+      </div>
+      <div class="contact-field">
+        <div class="contact-key">Phone Number:</div>
+        <div class="contact-value">
+          <sm-input [control]="contactForm.controls.phoneNumber" placeholder="Enter Phone NUmber..."></sm-input>
+        </div>
+      </div>
+      <div class="contact-field">
+        <div class="contact-key">Email</div>
+        <div class="contact-value">
+          <sm-input [control]="contactForm.controls.email" placeholder="Enter Email..."></sm-input>
+        </div>
+      </div>
+      <div class="contact-field">
+        <div class="contact-key">Status</div>
+        <div class="contact-value">
+          <sm-select [options]="{direction: 'upward'}" [control]="contactForm.controls.status" class="fluid">
+            <option value="true">Active</option>
+            <option value="false">Inactive</option>
+          </sm-select>
+        </div>
+      </div>
+      <div class="submit-button">
+          <sm-button (click)="contactForm.valid && addContact()" *ngIf="index === undefined" [disabled]="!contactForm.valid" class="primary" icon="plus square"> Create Contact</sm-button>
+          <sm-button (click)="contactForm.valid && addContact()" *ngIf="index !== undefined" [disabled]="!contactForm.valid" class="positive" icon="pencil alternate"> Update Contact</sm-button>
+          <sm-button (click)="resetForm()" class="negative"> Reset </sm-button>
+      </div>
+    </div>
+  </form>
+</div>

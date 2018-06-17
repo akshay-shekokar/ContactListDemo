@@ -1,0 +1,39 @@
+<header class="app-header">
+  Contact List Demo
+</header>
+<section class="action-list">
+  <sm-button class="primary"  (click)="addContactClicked($event)" icon="plus square"> Add</sm-button>
+  <sm-button class="positive" (click)="this.action === 'view' && updateContactClicked($event)" icon="pencil alternate" [disabled]="action !== 'view'"> Edit</sm-button>
+  <sm-button class="negative" (click)="this.action === 'view' && contactModal.show()" icon="window close" [disabled]="action !== 'view'"> Delete</sm-button>
+</section>
+<sm-modal title="Contact List Demo" class="basic mini" #contactModal>
+    <modal-content>
+        Please click 'Confirm' to delete the Contact!!!
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button normal" (click)="contactModal.hide()" style="margin-right: 10px;">Cancel</div>
+            <div class="ui button negative" (click)="deleteContactClicked()">Confirm</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+<div class="work-area">
+  <div class="contact-list">
+    <div class="contact-item-card" *ngFor="let contact of contactList; let i = index;" (click)="viewContact(i)" [class.selected]="i == selectedIndex">
+      <div class="contact-item">
+        <div class="contact-name">
+          {{contact.firstName}} {{contact.lastName}}
+        </div>
+        <div class="contact-status">
+          Status:
+          <span [class.status-active]="contact.status">{{contact.status ? "Active" : "Inactive"}}</span>
+        </div>
+      </div>
+    </div>
+    <app-blank-page *ngIf="!contactList.length"></app-blank-page>
+  </div>
+  <div class="contact-container">
+    <app-view-contact-details [index]="selectedIndex" *ngIf="action === 'view'"></app-view-contact-details>
+    <app-create-contact [index]="selectedIndex" *ngIf="action === 'create' || action === 'edit'"></app-create-contact>
+  </div>
+</div>

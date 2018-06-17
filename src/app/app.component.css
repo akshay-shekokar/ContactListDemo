@@ -1,0 +1,93 @@
+.app-header {
+    background: #1976d2;
+    position: fixed;
+    color: #fff;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 24px 16px;
+}
+
+.action-list {
+    padding: 15px 16px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+    position: absolute;
+    top: 65px;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+}
+
+.action-list > *{
+    padding-left: 5px;
+}
+
+.work-area {
+    position: absolute;
+    top: 135px;
+    width: calc(100% - 20px);
+    margin: 15px 30px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+    overflow: auto;
+    height:400px;
+}
+
+.contact-list {
+    width: 350px;
+    box-shadow: 5px 0 5px -5px #333;
+    height: 400px;
+    overflow: auto;
+}
+
+.contact-container {
+    padding-left: 20px;
+    width: 550px;
+}
+
+.contact-item-card {
+    margin: 5px 30px 5px 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.contact-item-card:hover {
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, .3);
+    cursor: pointer;
+}
+
+.contact-item-card.selected{
+    box-shadow: 0px 0px 10px 3px #16AB39;
+}
+
+.contact-item {
+    margin-left: 40px;
+    padding-left: 15px;
+    border-left: 1px solid #ddd;
+}
+
+.contact-name {
+    color: #888;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.contact-status {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.contact-status > span{
+    color: #D01919;
+}
+
+.contact-status > span.status-active{
+    color: #16AB39;
+}

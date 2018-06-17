@@ -1,0 +1,24 @@
+.create-contact-heading {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-details {
+    margin-top: 20px;
+    padding: 0 100px;
+}
+
+.contact-field {
+    padding: 5px;
+    display: flex;
+}
+
+.contact-key {
+    width: 150px;
+    margin: auto 0;
+}
+
+.submit-button {
+    margin: 25px 0;
+}
